@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
+import gamesReducer from './gamesReducer'
 
 export default combineReducers({
-  replaceMe: () => 10
+  games: gamesReducer
 })
