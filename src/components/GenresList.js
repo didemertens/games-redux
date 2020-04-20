@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getGenres } from '../actions'
+import { Link } from 'react-router-dom'
 
 class GenresList extends React.Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class GenresList extends React.Component {
           <h2>{genre.name}</h2>
           {genre.games.map(game => (
             <div className="item" key={game.id}>
-              <p onClick={() => console.log(game.id)}>{game.name}</p>
+              <Link to={`/games/${game.id}`}>{game.name}</Link>
             </div>
           ))}
         </div>
