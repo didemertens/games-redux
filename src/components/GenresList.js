@@ -14,7 +14,7 @@ class GenresList extends React.Component {
           <h2>{genre.name}</h2>
           {genre.games.map(game => (
             <div className="item" key={game.id}>
-              <p>{game.name}</p>
+              <p onClick={() => console.log(game.id)}>{game.name}</p>
             </div>
           ))}
         </div>

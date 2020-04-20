@@ -5,6 +5,12 @@ export const getGames = () => async dispatch => {
     dispatch({ type: "GET_GAMES", payload: response.data })
 }
 
+export const getGame = (id) => async dispatch => {
+    const response = await rawg.get(`/games/${id}`)
+    console.log(response)
+    dispatch({ type: "GET_GAME", payload: response.data })
+}
+
 export const getGenres = () => async dispatch => {
     const response = await rawg.get('/genres')
     dispatch({ type: "GET_GENRES", payload: response.data })
