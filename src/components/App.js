@@ -1,8 +1,11 @@
 import React from 'react'
+import GamesList from './GamesList'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div className="ui container">
+      <GamesList />
+    </div>
   )
 }
 
