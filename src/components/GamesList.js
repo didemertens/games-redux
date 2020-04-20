@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getGames } from '../actions'
+import { getGames, getGenres } from '../actions'
 
 class GamesList extends React.Component {
   componentDidMount() {
     this.props.getGames()
+    this.props.getGenres()
   }
 
   renderList() {
@@ -20,7 +21,7 @@ class GamesList extends React.Component {
   }
 
   render () {
-    console.log(this.props.games.results)
+    console.log(this.props.genres.results)
     if (this.props.games.length === 0) return null
     return (
       <div className="ui relaxed divided list">
@@ -32,11 +33,12 @@ class GamesList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    games: state.games
+    games: state.games,
+    genres: state.genres
   }
 }
 
 export default connect(
   mapStateToProps, 
-  { getGames }
+  { getGames, getGenres }
   )(GamesList)
