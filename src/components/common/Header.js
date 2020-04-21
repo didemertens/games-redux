@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GoogleAuth from '../GoogleAuth'
 
 const Header = () => (
   <div className="ui secondary pointing menu">
@@ -7,6 +8,7 @@ const Header = () => (
     <div className="right menu">
       <Link to="/genres" className="item">Genres</Link>
       <Link to="/games" className="item">Games</Link>
+      <GoogleAuth />
     </div>
   </div>
 )
