@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getGame } from '../actions'
+import { getGame } from '../../actions'
 
 class GameDetails extends React.Component {
   componentDidMount() {

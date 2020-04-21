@@ -1,9 +1,9 @@
 import React from 'react'
-import GamesList from '../GamesList'
-import GenresList from '../GenresList'
-import GameDetails from '../GameDetails'
-import Header from '../Header'
-import Home from '../Home'
+import GamesList from '../games/GamesList'
+import GenresList from '../games/GenresList'
+import GameDetails from '../games/GameDetails'
+import Header from '../common/Header'
+import Home from '../common/Home'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 

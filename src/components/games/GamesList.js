@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getGames, getGenres } from '../actions'
+import { getGames, getGenres } from '../../actions'
 
 class GamesList extends React.Component {
   componentDidMount() {

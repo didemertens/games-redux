@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getGenres } from '../actions'
+import { getGenres } from '../../actions'
 import { Link } from 'react-router-dom'
 
 class GenresList extends React.Component {
