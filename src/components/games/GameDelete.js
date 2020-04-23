@@ -1,5 +1,6 @@
 import React from 'react'
 
+import history from '../../history'
 import Modal from '../common/Modal'
 
 const GameDelete = () => {
@@ -16,6 +17,7 @@ const GameDelete = () => {
         title="Delete Game"
         content="Are you sure you want to delete this game?"
         actions={actions}
+        onDismiss={() => history.push('/')}
       />
     </div>
   )
