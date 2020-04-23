@@ -5,13 +5,14 @@ import GameDetails from '../games/GameDetails'
 import Header from '../common/Header'
 import Home from '../common/Home'
 import GameDelete from '../games/GameDelete'
+import history from '../../history'
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
   return (
     <div className="ui container">
-      <BrowserRouter>
+      <Router history={history}>
         <Header />
         <Switch>
           <Route path="/games/delete" component={GameDelete} />
@@ -20,7 +21,7 @@ const App = () => {
           <Route path="/genres" component={GenresList} />
           <Route exact path="/" component={Home} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }
