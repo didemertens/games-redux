@@ -15,7 +15,7 @@ const App = () => {
       <Router history={history}>
         <Header />
         <Switch>
-          <Route path="/games/delete" component={GameDelete} />
+          <Route path="/games/delete/:id" component={GameDelete} />
           <Route path="/games/:id" component={GameDetails} />
           <Route path="/games" component={GamesList} />
           <Route path="/genres" component={GenresList} />
