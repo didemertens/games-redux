@@ -29,9 +29,12 @@ export const signOut = () => {
     }
 }
 
-export const saveGame = (id) => {
+export const saveGame = (gameId, userId) => {
     return {
         type: SAVE_GAME,
-        payload: id
+        payload: {
+            userId,
+            gameId
+        }
     }
 }

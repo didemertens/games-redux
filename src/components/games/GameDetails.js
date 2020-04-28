@@ -14,7 +14,10 @@ class GameDetails extends React.Component {
         <h2>{this.props.game.name}</h2>
         <p>{this.props.game.rating}</p>
         <img className="ui medium image" src={this.props.game.background_image} alt={this.props.game.name} />
-        <button onClick={() => this.props.saveGame(this.props.game.id)} className="ui button primary">Save to wishlist</button>
+        {
+          this.props.auth.isSignedIn &&
+          <button onClick={() => this.props.saveGame(this.props.game.id, this.props.auth.userId)} className="ui button primary">Save to wishlist</button>
+        }
       </div>
     )
   }
@@ -32,7 +35,8 @@ class GameDetails extends React.Component {
 const mapStateToProps = (state) => {
   return {
     game: state.game,
-    savedGames: state.savedGames
+    savedGames: state.savedGames,
+    auth: state.auth
   }
 }
 

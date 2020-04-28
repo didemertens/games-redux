@@ -9,32 +9,47 @@ class GamesSaved extends React.Component {
 
 
   componentDidMount() {
-    this.props.savedGames.forEach(async (gameId) => {
-      await this.props.getGame(gameId)
+    this.props.savedGames.forEach(async (game) => {
+      await this.props.getGame(game.gameId)
       const response = this.props.game
-      this.setState({savedGamesData: [...this.state.savedGamesData, response]})
-
+      const userGame = { userId: game.userId, game: response}
+      this.setState({savedGamesData: [...this.state.savedGamesData, userGame]})
     })
   }
 
-
-  render() {
-    if (this.state.savedGamesData.length === 0) return (
+  renderNoSavedGames = () => {
+    return (
       <section>
         <h1>You haven't saved any games yet.</h1>
         <p>Click on the button below a game to save it to your wishlist.</p>
       </section>
     )
+  }
+
+
+  render() {
     return (
       <section>
-        <h1>Saved games</h1>
-        {this.state.savedGamesData.map(game => (
-          <div className="item" key={game.id}>
-            <h2>{game.name}</h2>
-            <p>{game.rating}</p>
-            <img className="ui medium image" src={game.background_image} alt={game.name} />
+        <h1>Wishlist</h1>
+        {this.state.savedGamesData.length === 0 
+        ?
+        this.renderNoSavedGames()
+        :
+        this.state.savedGamesData.map(el => {
+          return (
+          el.userId === this.props.auth.userId 
+          ?
+          <div className="item" key={el.game.id}>
+            <h5>{el.game.name}</h5>
+            <p>{el.game.rating}</p>
+            <img className="ui medium image" src={el.game.background_image} alt={el.game.name} />
           </div>
-        ))}
+          :
+          this.renderNoSavedGames()
+          )
+        })
+        } 
+        
       </section>
     )
   }
@@ -43,7 +58,8 @@ class GamesSaved extends React.Component {
 const mapStateToProps = (state) => {
   return {
     game: state.game,
-    savedGames: state.savedGames
+    savedGames: state.savedGames,
+    auth: state.auth
   }
 }
 
