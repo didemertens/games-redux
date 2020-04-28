@@ -1,5 +1,5 @@
 import rawg from '../apis/rawg'
-import { SIGN_IN, SIGN_OUT } from '../actions/types'
+import { SIGN_IN, SIGN_OUT, SAVE_GAME } from '../actions/types'
 
 export const getGames = () => async dispatch => {
     const response = await rawg.get('/games')
@@ -26,5 +26,12 @@ export const signIn = (userId) => {
 export const signOut = () => {
     return {
         type: SIGN_OUT
+    }
+}
+
+export const saveGame = (id) => {
+    return {
+        type: SAVE_GAME,
+        payload: id
     }
 }

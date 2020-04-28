@@ -1,11 +1,13 @@
 import React from 'react'
+import history from '../../history'
+
 import GamesList from '../games/GamesList'
 import GenresList from '../games/GenresList'
 import GameDetails from '../games/GameDetails'
 import Header from '../common/Header'
 import Home from '../common/Home'
 import GameDelete from '../games/GameDelete'
-import history from '../../history'
+import GamesSaved from '../games/GamesSaved'
 
 import { Router, Switch, Route } from 'react-router-dom'
 
@@ -15,6 +17,7 @@ const App = () => {
       <Router history={history}>
         <Header />
         <Switch>
+          <Route path="/games/saved" component={GamesSaved} />
           <Route path="/games/delete/:id" component={GameDelete} />
           <Route path="/games/:id" component={GameDetails} />
           <Route path="/games" component={GamesList} />
