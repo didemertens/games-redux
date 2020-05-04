@@ -31,6 +31,7 @@ class GameDetails extends React.Component {
             Save to wishlist
           </button>
         }
+        {this.state.gameSaved && <p>Game is saved to your wishlist</p>}
       </div>
     )
   }
