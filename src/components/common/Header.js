@@ -8,7 +8,7 @@ const Header = () => (
     <div className="right menu">
       <Link to="/genres" className="item">Genres</Link>
       <Link to="/games" className="item">Games</Link>
-      <Link to="/games/saved" className="item">Saved</Link>
+      <Link to="/games/saved" className="item">Wishlist</Link>
       <GoogleAuth />
     </div>
   </div>
