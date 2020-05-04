@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 import { getGame, saveGame } from '../../actions'
 
 class GameDetails extends React.Component {
+  state = {
+    gameSaved: false
+  }
+
+
   componentDidMount() {
     const { match: { params } } = this.props
     this.props.getGame(params.id)
@@ -15,8 +20,16 @@ class GameDetails extends React.Component {
         <p>{this.props.game.rating}</p>
         <img className="ui medium image" src={this.props.game.background_image} alt={this.props.game.name} />
         {
-          this.props.auth.isSignedIn &&
-          <button onClick={() => this.props.saveGame(this.props.game.id, this.props.auth.userId)} className="ui button primary">Save to wishlist</button>
+          this.props.auth.isSignedIn && !this.state.gameSaved &&
+          <button 
+            onClick={() => {
+              this.setState({ gameSaved: true })
+              this.props.saveGame(this.props.game.id, this.props.auth.userId)
+          }}
+            className="ui button primary"
+          >
+            Save to wishlist
+          </button>
         }
       </div>
     )
